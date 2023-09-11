@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../../../rupy"
+		},
+		{
+			"path": "../../../23.01.04"
+		},
+		{
+			"path": "../../../23.01.09"
+		},
+		{
+			"path": "../../../23.1.16"
+		},
+		{
+			"path": "../../../23.01.17"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "html"
+	}
+}
