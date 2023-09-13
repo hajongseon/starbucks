@@ -91,3 +91,19 @@ new Swiper('.promotion .swiper-container', {
         nextEl: '.promotion .swiper-next' // 다음 슬라이드 보는 버튼
     }
 });
+
+
+// promotion 숨기기
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener('click', function () {
+    isHidePromotion = !isHidePromotion // ! = "느낌표가 붙어있는 값이 반대가 되게 만들어주세요" = true
+    if(isHidePromotion) {
+        // 숨김 처리!
+        promotionEl.classList.add('hide');
+    } else {
+        // 보임 처리!
+        promotionEl.classList.remove('hide');
+    }
+});
