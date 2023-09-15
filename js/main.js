@@ -168,4 +168,6 @@ spyEls.forEach(function (spyEl) {
 
 
 
-// AWARDS
+// 올해가 몇년도인지 계산
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear(); // 2023
