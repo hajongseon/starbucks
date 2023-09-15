@@ -134,3 +134,23 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1, 15); // delay: 1(s), y: 15px
 floatingObject('.floating2', .5, 15); // delay: 0.5(S), y: 15px
 floatingObject('.floating3', 1.5, 20); // delay: 1.5(S), y: 20px
+
+
+
+// Scroll Mascie 
+// section부분에 scroll-spy라는 클래스들을 하나씩 붙여줌.
+/* ** 설명 **
+scroll-spy가 붙은 각각의 section들은 spayEls라는 변수에 모두 할당
+forEach로 반복적으로 처리함/ 반복될때마다 spyEl라는 매개변수에 값이 들어있음 */
+const spyEls = document.querySelectorAll('section.scroll-spy'); // section이라는 태그들이 있는데 만약에 scroll-spy클래스가 붙어있다면 그요소들을 다 찾겠다.
+spyEls.forEach(function (spyEl) {
+    // setClassToggle = html에 있는 class를 넣었다뺐다 지정
+    // addTo = ScrollMagic이라는 js라이브러리가 필요한 컨트롤러라는 개념의 내용을 추가 하기 위해 사용
+    new ScrollMagic // 이렇게 들여쓰기로 정리 = 체이닝형태
+        .Scene({
+            triggerElement: spyEl, // 보여짐 여부를 감시함 요소를 지정
+            triggerHook: .8 // 화면상에서 상단 0 하단 1 에서 0.8위치부분에서 trigger함으로써 애니메이션 효과 작동
+        })
+        .setClassToggle(spyEl, 'show')
+        .addTo(new ScrollMagic.Controller()); 
+});
