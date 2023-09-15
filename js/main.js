@@ -91,6 +91,17 @@ new Swiper('.promotion .swiper-container', {
         nextEl: '.promotion .swiper-next' // 다음 슬라이드 보는 버튼
     }
 });
+// Swiper - AWARDS
+new Swiper('.awards .swiper-container', {
+    autoplay: true,
+    loop: true,
+    spaceBetween: 30, // spaceBetwwen = 사이사이여백 30 = 30px
+    slidesPerView: 5,
+    navigation: {
+        prevEl: '.awards .swiper-prev',
+        nextEl: '.awards .swiper-next'
+    }
+});
 
 
 // promotion 숨기기
@@ -154,3 +165,7 @@ spyEls.forEach(function (spyEl) {
         .setClassToggle(spyEl, 'show')
         .addTo(new ScrollMagic.Controller()); 
 });
+
+
+
+// AWARDS
