@@ -26,6 +26,7 @@ searchInputEl.addEventListener('blur', function() { // focus가 해제되면
 
 // --일정 스크롤이 되면 badge사라지게 만들기
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top'); 
 
 // window 객체 : 출력되고 있는 화면 자체를 의미
 window.addEventListener('scroll', _.throttle(function() { // scroll 이벤트를 추가해 scroll이 되면 익명의 함수 실행
@@ -37,17 +38,33 @@ window.addEventListener('scroll', _.throttle(function() { // scroll 이벤트를
             opacity: 0,     //  css 값 입력 가능
             display: 'none' //  문자로 입력해야 하는 값은 '' 따옴표 처리!!
         });
+        // 버튼 보이기!
+        gsap.to(toTopEl, .2, { // 메소드를 굳이 안적고 적용시키고싶은 class나 id값을 넣어도 됨
+            x: 0,
+            transition: .5,
+         });
     } else {
         // 배치 보이기
         gsap.to(badgeEl, .6, {
             opacity: 1,
             display: 'block'
         });
+         // 버튼 숨기기!
+         gsap.to(toTopEl, .2, {
+            x: 100 // 100px지점으로 이동
+         });
         
     }
 }, 300)); // 300 = 0.3초 / 1000밀리세컨드 = 1초 / 300밀리세컨드 = 0.3초
-
 // _.throttle(함수, 시간(밀리세컨드 단위로))
+
+// 버튼 클릭시 홈페이지 최상단으로 올라가기
+toTopEl.addEventListener('click', function() {
+    gsap.to(window, .7, {
+        scrollTo: 0 // 화면의 위치를 0px로 0.7초동안 옮겨주겠다.
+    });
+});
+
 
 
 const fadeELs = document.querySelectorAll('.visual .fade-in');
